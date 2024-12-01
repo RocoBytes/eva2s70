@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/master}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Mesas</title>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Inicio</title>
+</head>
+
+<body>
+    <div class="row" layout:fragment="page-content" style="margin-top: 50px;">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Asientos</th>
+                <th>Disponible</th>
+            
+                
+            </tr>
+            <tr th:each="mesa: ${mesa}">
+                <td th:text="${mesa.id}"></td>
+                <td th:text="${mesa.numero}"></td>
+                <td th:text="${mesa.asientos}"></td>
+                <td th:text="${mesa.disponible}"></td>
+                <td>
+                    <a th:href="@{/mesa/editar/{id}(id=${mesa.id})}" class="btn-small blue lighten-1">Editar</a>
+                    <a th:href="@{/mesa/eliminar/{id}(id=${mesa.id})}" class="btn-small red darken-1">Eliminar</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
