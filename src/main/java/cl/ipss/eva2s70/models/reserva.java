@@ -11,6 +11,35 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+
+/**
+ * Entidad que representa una mesa en el sistema del restaurante Sabor Gourmet.
+ * 
+ * Esta clase modela las características y comportamientos de una mesa:
+ * - Identificación única de cada mesa
+ * - Número de mesa en el restaurante
+ * - Capacidad de asientos
+ * - Estado de disponibilidad
+ * - Relación con las reservas asociadas
+ * 
+ * Características principales:
+ * - Mapeo a tabla 'mesa' en la base de datos
+ * - Generación automática de ID
+ * - Relación OneToMany con la entidad Reserva
+ * - Gestión de disponibilidad para reservas
+ * 
+ * Atributos principales:
+ * - id: Identificador único
+ * - numero: Número de mesa en el restaurante
+ * - asientos: Capacidad de personas
+ * - disponible: Estado actual de la mesa
+ * - reserva: Lista de reservas asociadas
+ * 
+ * @author RocoBytes
+ * @version 1.0
+ * @since 2024-11-30
+ */
+
 @Entity
 @Table(name = "reserva")
 public class reserva {
@@ -20,8 +49,6 @@ public class reserva {
     
     private long id;
     private String hora;
-
-    
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_mesa")
