@@ -8,7 +8,7 @@
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Inicio</title>
+<title>Sabor Gourmet</title>
 </head>
 
 <body>
@@ -25,19 +25,16 @@
             </div>
             <div>
                 
-                <!-- <label for="disponible">
-                    <input type="checkbox" name="disponible" id="disponible" th:checked="*{disponible}" />
-                    <span>Disponible</span>
-                </label> -->
                 <label for="disponible">
                     <input type="checkbox" id="disponible" name="disponible" th:checked="*{disponible}" onchange="" />
-                    <span th:text="${mesa.disponible ? 'Disponible' : 'No disponible'}"></span>
+                    <span th:text="${mesa.disponible ? 'No disponible' : 'Disponible'}"></span>
                 </label>
                  
             </div><br>
 
             <div>
                 <button type="submit" class="btn">Guardar mesa</button>
+                <a th:href="@{/}" class="btn blue lighten-1">Volver</a>
             </div>
         </form>
     </div>

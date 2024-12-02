@@ -1,7 +1,5 @@
 package cl.ipss.eva2s70.models;
 
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
 
 /**
  * Entidad que representa una mesa en el sistema del restaurante Sabor Gourmet.
@@ -46,8 +43,9 @@ public class reserva {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     private long id;
+    private String nombre;
     private String hora;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -57,7 +55,8 @@ public class reserva {
     public reserva() {
     }
 
-    public reserva(String hora) {
+    public reserva(String nombre, String hora) {
+        this.nombre = nombre;
         this.hora = hora;
     }
 
@@ -67,6 +66,14 @@ public class reserva {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getHora() {
@@ -84,7 +91,5 @@ public class reserva {
     public void setMesa(mesa mesa) {
         this.mesa = mesa;
     }
-
-    
 
 }

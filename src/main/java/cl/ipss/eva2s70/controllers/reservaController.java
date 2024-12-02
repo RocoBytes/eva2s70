@@ -12,9 +12,9 @@ import cl.ipss.eva2s70.models.reserva;
 import cl.ipss.eva2s70.services.mesaService;
 import cl.ipss.eva2s70.services.reservaService;
 
-
 /**
- * Controlador que gestiona las operaciones CRUD para las mesas del restaurante Sabor Gourmet.
+ * Controlador que gestiona las operaciones CRUD para las mesas del restaurante
+ * Sabor Gourmet.
  * 
  * Este controlador maneja todas las operaciones relacionadas con las mesas:
  * - Visualización del listado completo de mesas
@@ -38,8 +38,6 @@ import cl.ipss.eva2s70.services.reservaService;
  * @version 1.0
  * @since 2024-11-30
  */
-
-
 
 @Controller
 @RequestMapping("/reserva")
@@ -73,7 +71,7 @@ public class reservaController {
     @GetMapping("/nuevo")
     public String mostrarFormularioDeCrearreserva(Model model) {
         model.addAttribute("reserva", new reserva());
-        model.addAttribute("mesa", mesaService.listarTodas()); // Cargar todas las mesas disponibles
+        model.addAttribute("mesas", mesaService.listarTodas());
         return "reservaCrear";
     }
 
@@ -92,7 +90,7 @@ public class reservaController {
     /**
      * Muestra el formulario para editar una reserva existente.
      * 
-     * @param id ID de la reserva a editar
+     * @param id    ID de la reserva a editar
      * @param model Modelo para pasar datos a la vista
      * @return Vista reservaCrear con los datos de la reserva
      */

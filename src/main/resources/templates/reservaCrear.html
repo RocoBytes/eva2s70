@@ -18,22 +18,30 @@
             
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="hora">Hora:</label>
-                    <textarea id="hora" th:field="*{hora}" class="materialize-textarea" required></textarea>
-                    
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" th:field="*{nombre}" class="validate" required>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <select th:field="*{mesa}">
+                    <label for="hora">Hora:</label>
+                    <input type="text" id="hora" th:field="*{hora}" class="validate" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="mesa" th:field="*{mesa}" class="browser-default" required>
                         <option value="" disabled selected>Selecciona una mesa</option>
-                        <option th:each="mesa : ${mesa}" th:value="${mesa.id}" th:text="${mesa.id}"></option>
+                        <option th:each="mesaItem : ${mesas}" 
+                                th:value="${mesaItem.id}" 
+                                th:text="'Mesa ' + ${mesaItem.id} + (${mesaItem.disponible} ? ' - Disponible' : ' - No disponible')">
+                        </option>
                     </select>
-                    <label for="mesa">mesa</label>
                 </div>
             </div>
             <div class="input-field col s12">
                 <button type="submit" class="btn">Guardar reserva</button>
+                <a th:href="@{/reserva}" class="btn blue lighten-1">Volver</a>
             </div>
     </div>
     </form>
@@ -42,7 +50,7 @@
     <script layout:fragment="javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('select');
-            var instances = M.FormSelect.init(elems);
+            M.FormSelect.init(elems);
         });
     </script>
     
