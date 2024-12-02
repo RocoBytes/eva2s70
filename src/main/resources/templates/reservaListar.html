@@ -24,8 +24,8 @@
                 
                 <td th:text="${reserva.mesa.numero}"></td>
                 <td>
-                    <a th:href="@{/reservas/editar/{id}(id=${reserva.id})}" class="btn-small blue lighten-1">Editar</a>
-                    <a th:href="@{/reservas/eliminar/{id}(id=${reserva.id})}" class="btn-small red darken-1">Eliminar</a>
+                    <a th:href="@{/reserva/editar/{id}(id=${reserva.id})}" class="btn-small blue lighten-1">Editar</a>
+                    <a th:href="@{/reserva/eliminar/{id}(id=${reserva.id})}" class="btn-small red darken-1">Eliminar</a>
                 </td>
             </tr>
         </table>
